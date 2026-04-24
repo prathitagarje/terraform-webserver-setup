@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "6.31.0"
+      version = "6.42.0"
     }
   }
 }
@@ -87,8 +87,8 @@ resource "aws_security_group" "http_server_sg" {
 }
 
 resource "aws_instance" "http_server" {
-  ami                         = "ami-0c1fe732b5494dc14"
-  instance_type               = "t3.medium"
+  ami                         = "ami-098e39bafa7e7303d"
+  instance_type               = "t3.micro"
   key_name                    = aws_key_pair.generated_key.key_name
   subnet_id                   = data.aws_subnets.default.ids[0]
   vpc_security_group_ids      = [aws_security_group.http_server_sg.id]
